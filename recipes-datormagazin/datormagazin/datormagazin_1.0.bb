@@ -9,7 +9,7 @@ SRC_URI = "file://hello.c"
 
 S = "${WORKDIR}"
 
-FILES_${PN} = "${bindir} ${bindir}/hello"
+FILES_${PN} = "${bindir}/hello"
 
 do_compile() {
     ${CC} ${WORKDIR}/hello.c ${CFLAGS} ${LDFLAGS} -o hello
@@ -17,5 +17,5 @@ do_compile() {
 
 do_install() {
     install -d ${D}${bindir}
-    install -m 755 ${S}/hello ${D}{bindir}
+    install -m 755 ${S}/hello ${D}${bindir}
 }
